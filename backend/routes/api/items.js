@@ -88,7 +88,7 @@ router.get('/', auth.optional, function (req, res, next) {
 						items.map(async function (item) {
 							item.image = item.image
 								? item.image
-								: 'https://github.com/ObelusFamily/Anythink-Market-j7pq7l0t/blob/564c9bd44c0774c9ad21f2d22f760c7d4ad2ff13/frontend/src/imgs/placeholder.png';
+								: 'https://github.com/ObelusFamily/Anythink-Market-j7pq7l0t/blob/main/frontend/src/imgs/placeholder.png?raw=true';
 							item.seller = await User.findById(item.seller);
 							return item.toJSONFor(user);
 						})

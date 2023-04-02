@@ -86,10 +86,6 @@ router.get('/', auth.optional, function (req, res, next) {
 				return res.json({
 					items: await Promise.all(
 						items.map(async function (item) {
-							item.image = item.image
-								? item.image
-								: 'https://github.com/ObelusFamily/Anythink-Market-j7pq7l0t/blob/main/frontend/src/imgs/placeholder.png?raw=true';
-
 							item.seller = await User.findById(item.seller);
 							return item.toJSONFor(user);
 						})
@@ -132,10 +128,6 @@ router.get('/feed', auth.required, function (req, res, next) {
 
 				return res.json({
 					items: items.map(function (item) {
-						item.image = item.image
-							? item.image
-							: 'https://github.com/ObelusFamily/Anythink-Market-j7pq7l0t/blob/main/frontend/src/imgs/placeholder.png?raw=true';
-
 						return item.toJSONFor(user);
 					}),
 					itemsCount: itemsCount,
